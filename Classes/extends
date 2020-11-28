@@ -24,9 +24,13 @@ describe('Classes can inherit from another using `extends`', () => {
     
     
     it('a class can extend `null`, and is not an instance of Object', () => {
-      class NullClass extends Object {}
+      class NullClass extends null{
+            constructor() {
+        return Obect.create(null)
+        }
+      }
       let nullInstance = new NullClass();
-      assert.equal(nullInstance instanceof Object, true);
+      assert.equal(nullInstance instanceof Object, false);
     });
   });
   
@@ -46,9 +50,9 @@ describe('Classes can inherit from another using `extends`', () => {
     
     it('extend over multiple levels', () => {
       class A {}
-      class B {}
+      class B extends A{}
       class C extends B {}
-      assert.equal(new C() instanceof A, false);
+      assert.equal(new C instanceof A, true);
     });
   });
 });

@@ -4,8 +4,8 @@
 
 describe('Destructuring arrays makes shorter code', () => {
   it('extract value from array, e.g. extract 0 into x like so `let [x] = [0];`', () => {
-    let [x] = [1];
-    assert.strictEqual(x, 1);
+    let [firstValue] = [1];
+    assert.strictEqual(firstValue, 1);
   });
   
   
@@ -32,8 +32,8 @@ describe('Destructuring arrays makes shorter code', () => {
   
   it('leading commas', () => {
     const all = [,'ax', 'why', 'zet'];
-    const [z] = all;
-    assert.equal(z);
+    const [, , z] = all;
+    assert.equal(z, 'zet');
   });
   
   
